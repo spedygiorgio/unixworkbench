@@ -1,3 +1,5 @@
-# Giorgio Alfredo Spedicato assignment for the Unix Workbench project
-This file has been created at the following date and time: urrent_date_time
-The bash file guessname.sh contains ode_lines lines of code, excluding comments (lines beginning with #)
+# Giorgio Alfredo Spedicato assignment for the Coursera Unix Workbench project
+This file has been created at the following date and time:
+Tue Apr 14 14:26:46 DST 2020
+The bash file guessinggame.sh contains the following number of lines of code, excluding comments (lines beginning with #):
+32

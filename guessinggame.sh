@@ -7,10 +7,10 @@ function compare_guess {
     # response and actual_numb_files are global variable
     if [[ $response -gt $actual_numb_files ]]
     then
-        delta="greater"
+        delta="too high"
     elif [[ $response -lt $actual_numb_files ]]
     then
-        delta="lower"
+        delta="too low"
     else
         delta="guessed"
     fi
