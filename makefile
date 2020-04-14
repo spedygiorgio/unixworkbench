@@ -6,6 +6,7 @@ README.md: guessinggame.sh
 	echo "This file has been created at the following datetime:" >> README.md
 	echo "" >> README.md
 	echo $$(date) >> README.md
+	echo "" >> README.md
 	echo "The bash file guessinggame.sh contains the following number of lines of code, excluding comments (lines beginning with #):" >> README.md
 	echo "" >> README.md
 	cat guessinggame.sh | grep "^[^#]" | wc -l >> README.md
