@@ -1,10 +1,10 @@
-# calculate the actual number of files in the current directory
+#calculate the actual number of files in the current directory
 actual_numb_files=$(ls -al | grep '^-' | wc -l) #grep expression keeps only files
-# this function compares the given response to actual number of files
-# it returns a string that gives the actual results
+#this function compares the given response to actual number of files
+#it returns a string that gives the actual results
 function compare_guess {
     local delta #this variable will be returned
-    # response and actual_numb_files are global variable
+    #response and actual_numb_files are global variable
     if [[ $response -gt $actual_numb_files ]]
     then
         delta="too high"
@@ -16,7 +16,7 @@ function compare_guess {
     fi
     echo $delta
 }
-# initialize the loop
+#initialize the loop
 keep="Y"
 while [[ "$keep" == "Y" ]]
 do
@@ -24,13 +24,13 @@ do
     read response
     result=$(compare_guess)
     echo "You entered: $response, that is $result."
-    # verify whether keep or not
+    #verify whether keep or not
     if [[ "$result" == "guessed" ]]
     then
-        echo "Congratulations!"
+        echo "Congratulations, you guessed correctly!"
         keep="N"
     else
-        echo "Input Y to continue keeping guessing..."
-        read keep
+        echo "Please keep guessing..."
+        #read keep
     fi
 done
