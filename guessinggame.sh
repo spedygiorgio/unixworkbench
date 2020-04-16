@@ -19,8 +19,10 @@ function compare_guess {
 keep="Y"
 while [[ "$keep" == "Y" ]]
 do
-    echo "Guess the number of files in the current directory. Give a number:"
-    read response
+    echo "Guess the number of files in the current directory."
+    echo "Give a number (non numeric chars will be ignored):"
+    read myinput
+    response=${myinput//[^0-9]/} #remove non numeric chars for input sanitization
     result=$(compare_guess)
     echo "You entered: $response, that is $result." #verify whether keep or not
     if [[ "$result" == "correct" ]]
