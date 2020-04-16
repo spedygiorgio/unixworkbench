@@ -7,9 +7,9 @@ README.md: guessinggame.sh
 	echo "" >> README.md
 	echo $$(date) >> README.md
 	echo "" >> README.md
-	echo "The bash file guessinggame.sh contains the following number of lines of code, excluding comments (lines beginning with #):" >> README.md
+	echo "The bash file guessinggame.sh contains the following number of lines of code, excluding lines beginning with #:" >> README.md
 	echo "" >> README.md
-	cat guessinggame.sh | grep "^#|^\s*#" | wc -l >> README.md
+	cat guessinggame.sh | grep '^[^#]' | wc -l >> README.md
 
 clean:
 	rm README.md
