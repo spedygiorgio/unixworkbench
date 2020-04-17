@@ -1,6 +1,6 @@
 #calculate the actual number of files in the current directory
-#actual_numb_files=$(ls -al | grep '^-' | wc -l) #it counts files only
-actual_numb_files=$(ls | wc -l) #generalized ls version
+actual_numb_files=$(ls -A | wc -l) #taking almos all
+#actual_numb_files=$(ls -al | grep '^-' | wc -l) #old approach
 #this function compares the given response to actual number of files
 #it returns a string that gives the actual results
 function compare_guess {
