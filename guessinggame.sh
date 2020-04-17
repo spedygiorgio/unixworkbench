@@ -1,5 +1,6 @@
 #calculate the actual number of files in the current directory
-actual_numb_files=$(ls -al | grep '^-' | wc -l) #it counts files only
+#actual_numb_files=$(ls -al | grep '^-' | wc -l) #it counts files only
+actual_numb_files=$(ls | wc -l) #generalized ls version
 #this function compares the given response to actual number of files
 #it returns a string that gives the actual results
 function compare_guess {
@@ -20,9 +21,19 @@ keep="Y"
 while [[ "$keep" == "Y" ]]
 do
     echo "Guess the number of files in the current directory."
-    echo "Give a number (non numeric chars will be ignored):"
-    read myinput
-    response=${myinput//[^0-9]/} #remove non numeric chars for input sanitization
+	checknumber="KO"
+	while [[ "$checknumber" == "KO" ]] #check input
+	do
+		echo "Give a non negative number:"
+		read response
+		if ! [[ $response =~ ^[0-9]+$ ]] #check format
+		then
+			echo "The input, $response, is not a non negative number. Try again"
+			checknumber="KO"
+		else
+			checknumber="OK"
+		fi
+	done
     result=$(compare_guess)
     echo "You entered: $response, that is $result." #verify whether keep or not
     if [[ "$result" == "correct" ]]
